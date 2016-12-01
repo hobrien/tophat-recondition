@@ -215,6 +215,7 @@ def fix_unmapped_reads(path, outdir, mapped_file="accepted_hits.bam",
 
     # For the output file, take the headers from the unmapped file.
     fixup_header = unmapped_header
+    fixup_header['PG'][0]['ID'] = 'TopHat-unmapped'
     fixup_header['PG'].append({'ID': 'TopHat-Recondition',
                                'VN': __version__,
                                'CL': cmdline})
